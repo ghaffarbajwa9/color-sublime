@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteOptions inherit
+
+redirect 301 /sublimadoras/remeras/40x60.html https://color-sublime.mx/sublimadoras/playeras/40x60.html
+redirect 301 /sublimadoras/remeras/38x38.html https://color-sublime.mx/sublimadoras/playeras/38x38.html
+RewriteCond %{HTTP_HOST} ^color\-sublime\.mx$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.color\-sublime\.mx$
+RewriteRule ^estampadoras\.html$ "https\:\/\/color\-sublime\.mx\/" [R=301,L]
+
